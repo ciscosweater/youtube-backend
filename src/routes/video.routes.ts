@@ -17,4 +17,8 @@ videoRoutes.get('/search', (request, response) => {
     videoRepository.searchVideos(request, response);
 });
 
+videoRoutes.get('/homevideos', (request, response) => {
+    videoRepository.getAllVideos(request, response);
+})
+
 export { videoRoutes };
