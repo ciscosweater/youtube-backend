@@ -65,11 +65,11 @@ class VideoRepository {
     }
 
     searchVideos(request: Request, response: Response) {
-        const { search } = request.query;
+        const { input } = request.query;
         pool.getConnection((err: any, connection: any) => {
             connection.query(
-                'SELECT * FROM videos WHERE title LIKE ?',
-                [`%${search}%`],
+                'SELECT * FROM uploadedvideos WHERE title LIKE ?',
+                [`%${input}%`],
                 (error: any, results: any) => {
                     connection.release();
                     if (error) {
